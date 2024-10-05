@@ -30,4 +30,39 @@ async function test() {
 
 test();
 
+
+
+// this code is used to output the scraped data onto a webpage
+
+
+    // nesting asyncs are required
+async function main() {
+    try {
+        //waits to make sure the builder finishes
+        await buildPage(id);
+    } catch (error) {
+        console.error("Error: ".error);
+    }
+}
+
+//function written to use the scraped data
+async function buildPage(id) {
+    try {
+        // scraps the md file
+        const result = await getReadme();
+        // sets the parent container
+        var line = document.getElementById(id);
+        // creates a new div for the content to be inserted into
+        var div = document.createElement("DIV");
+        // adds the scraped md into the div
+        div.innerHTML = result;
+        // appends the new div into the parent container
+        line.appendChild(div);
+    } catch (error) {
+        console.error("Error:", error)
+    }
+};
+// runs main
+// main();
+
   
